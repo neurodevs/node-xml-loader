@@ -6,7 +6,9 @@ import {
 } from '@neurodevs/node-file-loader'
 import { parseStringPromise } from 'xml2js'
 
-export default class XmlLoaderImpl extends AbstractFileLoader<ParsedXml> {
+export default class XmlLoaderImpl<
+    FileContent = ParsedXml,
+> extends AbstractFileLoader<FileContent> {
     public static Class?: XmlLoaderConstructor
 
     public static Create(options?: FileLoaderOptions) {
@@ -21,14 +23,15 @@ export default class XmlLoaderImpl extends AbstractFileLoader<ParsedXml> {
 
     private async loadXml() {
         const content = await fs.promises.readFile(this.path, 'utf-8')
-        return await parseStringPromise(content)
+        const result = await parseStringPromise(content)
+        return result as FileContent
     }
 }
 
-export type XmlLoader = FileLoader<ParsedXml>
+export type XmlLoader<FileContent = ParsedXml> = FileLoader<FileContent>
 
-export type XmlLoaderConstructor = new (
+export type XmlLoaderConstructor<FileContent = ParsedXml> = new (
     options?: FileLoaderOptions
-) => XmlLoader
+) => XmlLoader<FileContent>
 
 export type ParsedXml = Record<string, unknown>
