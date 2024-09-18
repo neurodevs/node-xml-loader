@@ -31,6 +31,7 @@
     "@sprucelabs/test": "^9.0.45",
     "@sprucelabs/test-utils": "^5.1.293",
     "@types/node": "^22.5.5",
+    "@types/xml2js": "^0.4.14",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.10.0",
     "eslint-config-spruce": "^11.2.26",
@@ -62,5 +63,9 @@
     "moduleNameMapper": {
       "^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
     }
+  },
+  "dependencies": {
+    "@neurodevs/node-file-loader": "^0.2.0",
+    "xml2js": "^0.6.2"
   }
 }

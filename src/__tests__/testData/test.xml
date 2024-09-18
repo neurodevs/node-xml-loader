@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <elementA>Hello, World!</elementA>
+    <elementB>
+        <subElement>42</subElement>
+    </elementB>
+    <elementC>
+        <subElement1>Value 1</subElement1>
+        <subElement2>Value 2</subElement2>
+    </elementC>
+</root>
